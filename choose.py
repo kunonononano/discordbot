@@ -9,10 +9,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if message.content.startswith('/neko'):
-        reply = 'にゃーん'
-        await client.send_message(message.channel, reply)
-    elif message.content.startswith('/sep'):
+    if message.content.startswith('/sep'):
         cmd = message.content.split(' ')
         if len(cmd) !=2 or not cmd[1].isdecimal():
             await client.send_message(message.channel, 'コマンド/sepは\"/sep 数字\"の形で使ってください')
@@ -24,12 +21,14 @@ async def on_message(message):
         members = random.sample(members, length)
         for member in members:
             await client.send_message(message.channel, member)
+    elif message.content.startswith('/emoji'):
+        await create_emoji(message)
     elif message.content.startswith('/exit'):
         reply = 'ばいば～い'
         await client.send_message(message.channel, reply)
         await client.logout()
-    elif message.content.startswith('/emoji'):
-        await create_emoji(message)
+    elif message.content.startswith('/join'):
+        #await client.login('NTIxNjQ2MTcyNjA4MTM1MTk3.Du_cfQ.L0aohITRdTXLj0_QP_m3c32u_X8')
 
 @client.event
 async def create_emoji(message):
