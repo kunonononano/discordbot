@@ -27,7 +27,7 @@ async def on_message(message):
         reply = 'ばいば～い'
         await client.send_message(message.channel, reply)
         await client.logout()
-    elif message.content.startswith('/join'):
+    #elif message.content.startswith('/join'):
         #await client.login('NTIxNjQ2MTcyNjA4MTM1MTk3.Du_cfQ.L0aohITRdTXLj0_QP_m3c32u_X8')
 
 @client.event
