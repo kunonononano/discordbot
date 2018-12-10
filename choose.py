@@ -52,4 +52,4 @@ async def create_emoji(message):
     img_read = urllib.request.urlopen(request).read()
     emoji = await client.create_custom_emoji(message.server, name=name, image=img_read)
 
-client.run('NTIxNjQ2MTcyNjA4MTM1MTk3.Du_cfQ.L0aohITRdTXLj0_QP_m3c32u_X8')
+client.run('NTIxNjQ2MTcyNjA4MTM1MTk3.DvCJ8g.qwopdB1kpdUvtvHbd1KJYCTbnhQ')
