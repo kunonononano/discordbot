@@ -23,6 +23,11 @@ async def on_message(message):
             await client.send_message(message.channel, member)
     elif message.content.startswith('/emoji'):
         await create_emoji(message)
+    elif message.content.startswith('/how2'):
+        await client.send_message(message.channel,
+                                  '\"/sep 数字\"と打つと打った人のいるvoice channelの中でランダムに指定した数字の人数が選ばれます。\n観戦者を分けるときにでもどうぞ\n'
+                                  + '画像を一枚添付して\"emoji 名前\"と打つと選んだ画像が指定した名前で絵文字になります。\n'
+                                  + '絵文字は合計50しか保存できないので管理者の方は注意してね')
     # elif message.content.startswith('/exit'):
     #     reply = 'ばいば～い'
     #     await client.send_message(message.channel, reply)
