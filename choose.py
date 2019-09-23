@@ -24,7 +24,7 @@ async def on_message(message):
 async def do_separate(message):
     cmd = message.content.split(' ')
     if len(cmd) !=2 or not cmd[1].isdecimal():
-        await client.send_message(message.channel, 'コマンド/sepは\"/sep 数字\"の形で使ってください')
+        await client.send_message(message.channel, 'コマンド/sepは\"/sep 数字\"の形で使ってください。')
         return
     members = []
     for mem in message.author.voice.voice_channel.voice_members:
