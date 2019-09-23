@@ -10,17 +10,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
     if message.content.startswith('/sep'):
-        cmd = message.content.split(' ')
-        if len(cmd) !=2 or not cmd[1].isdecimal():
-            await client.send_message(message.channel, 'コマンド/sepは\"/sep 数字\"の形で使ってください')
-            return
-        members = []
-        for mem in message.author.voice.voice_channel.voice_members:
-            members.append(mem.name if mem.nick is None else mem.nick)
-        length = int(cmd[1]) if int(cmd[1]) < len(members) else len(members)
-        members = random.sample(members, length)
-        for member in members:
-            await client.send_message(message.channel, member)
+        await do_separate(message)
     elif message.content.startswith('/emoji'):
         await create_emoji(message)
     # elif message.content.startswith('/exit'):
@@ -29,6 +19,20 @@ async def on_message(message):
     #     await client.logout()
     # elif message.content.startswith('/join'):
     #     await client.login('NTIxNjQ2MTcyNjA4MTM1MTk3.Du_cfQ.L0aohITRdTXLj0_QP_m3c32u_X8')
+
+@client.event
+async def do_separate(message):
+    cmd = message.content.split(' ')
+    if len(cmd) !=2 or not cmd[1].isdecimal():
+        await client.send_message(message.channel, 'コマンド/sepは\"/sep 数字\"の形で使ってください')
+        return
+    members = []
+    for mem in message.author.voice.voice_channel.voice_members:
+        members.append(mem.name if mem.nick is None else mem.nick)
+    length = int(cmd[1]) if int(cmd[1]) < len(members) else len(members)
+    members = random.sample(members, length)
+    for member in members:
+        await client.send_message(message.channel, member)
 
 @client.event
 async def create_emoji(message):
