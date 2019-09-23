@@ -24,12 +24,13 @@ async def on_message(message):
         await judge_answer(message)
     elif message.content.startswith('/add'):
         await add_abbreviation(message)
-    # elif message.content.startswith('/exit'):
-    #     reply = 'ばいば～い'
-    #     await client.send_message(message.channel, reply)
-    #     await client.logout()
-    # elif message.content.startswith('/join'):
-    #     await client.login('NTIxNjQ2MTcyNjA4MTM1MTk3.Du_cfQ.L0aohITRdTXLj0_QP_m3c32u_X8')
+    elif message.content.startswith('/exit'):
+        reply = 'ばいば～い'
+        await client.send_message(message.channel, reply)
+        await client.send_message(message.channel, reply)
+        await client.logout()
+    elif message.content.startswith('/join'):
+        await client.login('NTIxNjQ2MTcyNjA4MTM1MTk3.Du_cfQ.L0aohITRdTXLj0_QP_m3c32u_X8')
 
 @client.event
 async def do_separate(message):
