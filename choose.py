@@ -102,4 +102,4 @@ async def add_abbreviation(message):
         return
     cmd, formal, abbreviation = cmd
 
-client.run('NTIxNjQ2MTcyNjA4MTM1MTk3.DvCJ8g.qwopdB1kpdUvtvHbd1KJYCTbnhQ')
+client.run('NTIxNjQ2MTcyNjA4MTM1MTk3.XYjrVw.3nqYn1QbBPtGFgjIeWogUrK-r_0')
